@@ -13,7 +13,7 @@ All of CRUD operations are considered in this simple contact app example using H
 </p>
 
 <p align="center">
-  =============================================================================================
+  ==========================================================
 </p>
 
 <p align="center">
