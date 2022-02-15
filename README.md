@@ -6,16 +6,16 @@ All of CRUD operations are considered in this simple contact app example using H
 
 ## Demo Pics of App:
 
-### pic 1
 
-<p align="center">
-  --------------------------------------------------
-</p>
+
 <p align="center">
   <img src="assets/images/image1.png" width="350">
 </p>
 
-### pic 2
+<p align="center">
+  =============================================================================================
+</p>
+
 <p align="center">
   <img src="assets/images/image2.png" width="350">
 </p>
