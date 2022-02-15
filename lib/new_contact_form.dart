@@ -17,14 +17,14 @@ class NewContactForm extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: TextFormField(
-                  controller: controller.nameController.value,
+                  controller: controller.addNameController.value,
                   decoration: const InputDecoration(labelText: 'Name'),
                 ),
               ),
               const SizedBox(width: 10),
               Expanded(
                 child: TextFormField(
-                  controller: controller.numberController.value,
+                  controller: controller.addNumberController.value,
                   decoration: const InputDecoration(labelText: 'Number'),
                   keyboardType: TextInputType.number,
                 ),
@@ -36,11 +36,11 @@ class NewContactForm extends StatelessWidget {
                 backgroundColor: MaterialStateProperty.all(Colors.redAccent)),
             child: const Text('Add New Contact'),
             onPressed: () {
-              if (controller.nameController.value.text != '' &&
-                  controller.numberController.value.text != '') {
+              if (controller.addNameController.value.text != '' &&
+                  controller.addNumberController.value.text != '') {
                 final newContact = Contact(
-                  controller.nameController.value.text,
-                  int.parse(controller.numberController.value.text),
+                  controller.addNameController.value.text,
+                  int.parse(controller.addNumberController.value.text),
                 );
                 // ignore: avoid_print
                 print('add contact : ${newContact.name} ${newContact.number}');
