@@ -5,16 +5,13 @@ All of CRUD operations are cosidered in this simple contact example using Hive f
 
 
  # Demo Pics of App:
-![alt text](https://github.com/hosseinvejdani/flutter_contact_app_with_getx_and_hive/blob/master/assets/images/image1.png?raw=true
-)
-
-
-![alt text](https://github.com/hosseinvejdani/flutter_contact_app_with_getx_and_hive/blob/master/assets/images/image2.png?raw=true
-)
 
 <p align="center">
-  <img src="assets/images/image1.png" width="350" title="hover text">
-  <img src="assets/images/image2.png" width="350" alt="accessibility text">
+  <img src="assets/images/image1.png" width="350">
+</p>
+
+<p align="center">
+  <img src="assets/images/image2.png" width="350">
 </p>
 
 
