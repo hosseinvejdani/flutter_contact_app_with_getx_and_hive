@@ -4,12 +4,13 @@ import 'package:hive/hive.dart';
 import '../models/contact.dart';
 
 class ContactController extends GetxController {
-  static const String dbName = 'contacts';
+  final RxString dbName = 'contacts'.obs;
 
   final RxList _contacts = [].obs;
 
-  final Rx<TextEditingController> _nameController = TextEditingController().obs;
-  final Rx<TextEditingController> _numberController =
+  final Rx<TextEditingController> _addNameController =
+      TextEditingController().obs;
+  final Rx<TextEditingController> _addNumberController =
       TextEditingController().obs;
 
   @override
@@ -20,11 +21,11 @@ class ContactController extends GetxController {
   }
 
   RxList get contacts => _contacts;
-  Rx<TextEditingController> get nameController => _nameController;
-  Rx<TextEditingController> get numberController => _numberController;
+  Rx<TextEditingController> get addNameController => _addNameController;
+  Rx<TextEditingController> get addNumberController => _addNumberController;
 
   void addDefaultContacts() {
-    final contactsBox = Hive.box(dbName);
+    final contactsBox = Hive.box(dbName.value);
     if (contactsBox.isEmpty) {
       // these are initial default contacts
       addContact(Contact('minoo', 3305656));
@@ -34,12 +35,12 @@ class ContactController extends GetxController {
   }
 
   void cleanForm() {
-    _nameController.value.clear();
-    _numberController.value.clear();
+    _addNameController.value.clear();
+    _addNumberController.value.clear();
   }
 
   void addContact(Contact contact) {
-    final contactsBox = Hive.box(dbName);
+    final contactsBox = Hive.box(dbName.value);
     contactsBox.add(contact);
     cleanForm();
     // ignore: avoid_print
@@ -47,17 +48,17 @@ class ContactController extends GetxController {
   }
 
   getContactByIndex(int index) {
-    final contactsBox = Hive.box(dbName);
+    final contactsBox = Hive.box(dbName.value);
     return contactsBox.getAt(index) as Contact;
   }
 
   deleteContactByIndex(int index) {
-    final contactsBox = Hive.box(dbName);
+    final contactsBox = Hive.box(dbName.value);
     contactsBox.deleteAt(index);
   }
 
   updateContactByIndex(int index, Contact contact) {
-    final contactsBox = Hive.box(dbName);
+    final contactsBox = Hive.box(dbName.value);
     contactsBox.putAt(index, contact);
   }
 
@@ -65,14 +66,14 @@ class ContactController extends GetxController {
     Box box;
     // Getting contacts
     try {
-      box = Hive.box(dbName);
+      box = Hive.box(dbName.value);
     } catch (error) {
-      box = await Hive.openBox(dbName);
+      box = await Hive.openBox(dbName.value);
       // ignore: avoid_print
       print(error);
     }
 
-    var allContacts = box.get(dbName);
+    var allContacts = box.get(dbName.value);
     if (allContacts != null) _contacts.value = allContacts;
   }
 }
